@@ -16,7 +16,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .day-pill{font-size:11px;font-weight:500;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:4px 10px;letter-spacing:.04em}
 .room-wrap{width:100%;max-width:520px;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
 #room{display:block;width:100%;height:280px;cursor:pointer}
-.click-hint{position:absolute;bottom:8px;right:10px;font-size:10px;color:rgba(255,255,255,0.28);pointer-events:none;letter-spacing:.03em}
+.click-hint{position:absolute;bottom:8px;left:10px;font-size:10px;color:rgba(255,255,255,0.28);pointer-events:none;letter-spacing:.03em}
 .stats{width:100%;max-width:520px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
 .stat-label{font-size:10px;color:var(--muted);margin-bottom:4px;letter-spacing:.03em}
@@ -79,6 +79,38 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .piano-msg{font-size:13px;color:var(--muted);min-height:20px;margin-bottom:10px}
 .piano-close-btn{padding:10px 28px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:13px;cursor:pointer;transition:background .12s}
 .piano-close-btn:hover{background:var(--surface2)}
+/* PROFILE */
+.profile-screen{width:100%;max-width:520px;animation:fadeUp .5s ease;padding:8px 0}
+.profile-screen h2{font-size:24px;font-weight:700;margin-bottom:6px;text-align:center}
+.profile-screen .sub{font-size:13px;color:var(--muted);margin-bottom:28px;text-align:center}
+.pf-group{margin-bottom:20px}
+.pf-label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
+.pf-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text);font-family:inherit;outline:none;transition:border-color .15s}
+.pf-input:focus{border-color:rgba(200,169,126,0.5)}
+.pf-chips{display:flex;flex-wrap:wrap;gap:8px}
+.pf-chip{background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:8px 16px;cursor:pointer;font-size:13px;color:var(--text);font-family:inherit;transition:all .12s}
+.pf-chip:hover{border-color:rgba(255,255,255,0.2)}
+.pf-chip.sel{background:rgba(200,169,126,0.15);border-color:var(--accent);color:var(--accent);font-weight:500}
+/* DUOLINGO */
+.duo-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:200;padding:20px}
+.duo-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px 20px;width:100%;max-width:440px;text-align:center}
+.duo-title{font-size:18px;font-weight:700;margin-bottom:4px}
+.duo-sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+.duo-word{font-size:30px;font-weight:700;color:var(--accent);margin-bottom:16px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.duo-choices{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.duo-choice{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 8px;cursor:pointer;font-size:13px;color:var(--text);font-family:inherit;transition:all .12s}
+.duo-choice:hover{border-color:rgba(255,255,255,0.2)}
+.duo-choice.correct{border-color:var(--green);background:rgba(126,200,160,0.15);color:var(--green)}
+.duo-choice.wrong{border-color:var(--red);background:rgba(200,126,126,0.15);color:var(--red)}
+.duo-progress{height:4px;border-radius:99px;background:rgba(255,255,255,0.07);margin-bottom:14px;overflow:hidden}
+.duo-prog-fill{height:100%;border-radius:99px;background:var(--green);transition:width .3s}
+.duo-msg{font-size:13px;color:var(--muted);min-height:20px;margin-bottom:10px}
+.duo-close-btn{padding:10px 28px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:var(--text);font-family:inherit;font-size:13px;cursor:pointer;transition:background .12s}
+.duo-close-btn:hover{background:var(--surface2)}
+/* SALARY */
+.salary-badge{position:absolute;top:10px;right:10px;background:rgba(15,14,23,0.9);border:1px solid rgba(200,169,126,0.45);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:4px;z-index:10;pointer-events:none}
+@keyframes coinFall{0%{opacity:1;transform:translateY(-10px) rotate(0deg)}100%{opacity:0;transform:translateY(160px) rotate(540deg)}}
+.coin{position:absolute;font-size:18px;animation:coinFall 1.5s ease-in forwards;pointer-events:none;z-index:5}
 /* OFFICE SCREEN */
 .office-screen{width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center;animation:fadeUp .5s ease}
 .office-wrap{width:100%;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
@@ -92,16 +124,52 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 </head>
 <body>
 
-<div class="title-screen" id="title-screen">
+<!-- PROFILE SCREEN -->
+<div class="profile-screen" id="profile-screen">
+  <div style="font-size:40px;text-align:center;margin-bottom:12px">👤</div>
+  <h2>나는 누구인가?</h2>
+  <p class="sub">프로필을 입력하면 게임이 시작됩니다</p>
+
+  <div class="pf-group">
+    <label class="pf-label">닉네임</label>
+    <input class="pf-input" id="pf-nickname" type="text" placeholder="나의 이름..." maxlength="12">
+  </div>
+  <div class="pf-group">
+    <label class="pf-label">생일</label>
+    <input class="pf-input" id="pf-birthday" type="date">
+  </div>
+  <div class="pf-group">
+    <label class="pf-label">다루는 악기</label>
+    <div class="pf-chips" id="pf-instrument">
+      <button class="pf-chip" data-val="piano" onclick="selectChip(this,'instrument')">🎹 피아노</button>
+      <button class="pf-chip" data-val="guitar" onclick="selectChip(this,'instrument')">🎸 기타</button>
+      <button class="pf-chip" data-val="bass" onclick="selectChip(this,'instrument')">🎸 베이스</button>
+      <button class="pf-chip" data-val="drums" onclick="selectChip(this,'instrument')">🥁 드럼</button>
+      <button class="pf-chip" data-val="vocal" onclick="selectChip(this,'instrument')">🎤 보컬</button>
+    </div>
+  </div>
+  <div class="pf-group">
+    <label class="pf-label">배우고 싶은 언어</label>
+    <div class="pf-chips" id="pf-language">
+      <button class="pf-chip" data-val="en" onclick="selectChip(this,'language')">🇬🇧 영어</button>
+      <button class="pf-chip" data-val="fr" onclick="selectChip(this,'language')">🇫🇷 불어</button>
+      <button class="pf-chip" data-val="ko" onclick="selectChip(this,'language')">🇰🇷 한국어</button>
+      <button class="pf-chip" data-val="ja" onclick="selectChip(this,'language')">🇯🇵 일본어</button>
+    </div>
+  </div>
+  <button class="start-btn" style="width:100%;margin-top:8px" onclick="submitProfile()">시작하기 →</button>
+</div>
+
+<div class="title-screen hidden" id="title-screen">
   <div style="font-size:48px;margin-bottom:16px">🏠</div>
-  <h2>퇴근 힐링 루틴</h2>
+  <h2 id="title-h2">퇴근 힐링 루틴</h2>
   <p>지친 하루를 마치고 집에 돌아왔다.<br>오늘 저녁을 어떻게 보낼지는 당신에게 달렸다.<br>스트레스를 낮추고, 방을 꾸미고, 나를 회복하자.</p>
   <button class="start-btn" onclick="startGame()">퇴근하기</button>
 </div>
 
 <div id="game-screen" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center">
   <div class="header">
-    <h1>퇴근 힐링 루틴</h1>
+    <h1 id="game-title">퇴근 힐링 루틴</h1>
     <span class="day-pill" id="day-pill">Day 1</span>
   </div>
   <div class="room-wrap">
@@ -136,11 +204,12 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 <!-- OFFICE SCREEN -->
 <div class="office-screen hidden" id="office-screen">
   <div class="header">
-    <h1>퇴근 힐링 루틴</h1>
+    <h1 id="office-title">퇴근 힐링 루틴</h1>
     <span class="day-pill" id="office-day-pill">Day 2</span>
   </div>
   <div class="office-wrap">
     <canvas id="office-canvas"></canvas>
+    <div class="salary-badge" id="salary-badge">💰 <span id="salary-num">0</span>원</div>
   </div>
   <div class="office-thought">
     <p>아 퇴근하고 싶다...</p>
@@ -148,6 +217,19 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   </div>
 </div>
 
+
+<!-- DUOLINGO OVERLAY -->
+<div class="duo-overlay hidden" id="duo-overlay">
+  <div class="duo-box">
+    <div class="duo-title" id="duo-title">🦜 언어 연습</div>
+    <div class="duo-sub" id="duo-sub">표현을 배워봐요</div>
+    <div class="duo-word" id="duo-word"></div>
+    <div class="duo-progress"><div class="duo-prog-fill" id="duo-prog" style="width:0%"></div></div>
+    <div class="duo-choices" id="duo-choices"></div>
+    <div class="duo-msg" id="duo-msg"></div>
+    <button class="duo-close-btn" onclick="closeDuo(false)">그만하기</button>
+  </div>
+</div>
 
 <div class="piano-overlay hidden" id="piano-overlay">
   <div class="piano-box">
@@ -162,6 +244,258 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 </div>
 
 <script>
+
+/* ══ PROFILE ══ */
+const profile = {nickname:'', birthday:'', instrument:'piano', language:'en'};
+const profileChips = {instrument:null, language:null};
+
+function selectChip(btn, group){
+  const container = document.getElementById('pf-'+group);
+  container.querySelectorAll('.pf-chip').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  profileChips[group] = btn.dataset.val;
+}
+
+function submitProfile(){
+  const nick = document.getElementById('pf-nickname').value.trim();
+  if(!nick){alert('닉네임을 입력해주세요!');return;}
+  if(!profileChips.instrument){alert('악기를 선택해주세요!');return;}
+  if(!profileChips.language){alert('언어를 선택해주세요!');return;}
+  profile.nickname = nick;
+  profile.birthday = document.getElementById('pf-birthday').value;
+  profile.instrument = profileChips.instrument;
+  profile.language = profileChips.language;
+
+  // build instrument action
+  buildInstrumentAction();
+  buildDuoAction();
+
+  document.getElementById('profile-screen').classList.add('hidden');
+  const ts = document.getElementById('title-screen');
+  ts.classList.remove('hidden'); ts.style.display='flex';
+  ts.style.flexDirection='column'; ts.style.alignItems='center';
+  document.getElementById('title-h2').textContent = nick + '의 퇴근 힐링 루틴';
+}
+
+/* ══ INSTRUMENT ACTION ══ */
+const INSTRUMENT_CONFIG = {
+  piano: {icon:'🎹', name:'피아노 연습', log:'서툰 멜로디가 방을 채운다. 이상하게 뿌듯하다.', special:'piano'},
+  guitar: {icon:'🎸', name:'기타 연습', log:'코드 소리가 손가락 끝에서 퍼진다. 좋다.', special:'guitar'},
+  bass: {icon:'🎸', name:'베이스 연습', log:'낮은 음이 방을 진동시킨다. 심장이 따라 뛴다.', special:'bass'},
+  drums: {icon:'🥁', name:'드럼 연습', log:'리듬을 따라 스트레스가 날아간다.', special:'drums'},
+  vocal: {icon:'🎤', name:'보컬 연습', log:'목소리가 방 안에 울려 퍼진다. 오늘도 수고했다.', special:'vocal'},
+};
+function buildInstrumentAction(){
+  const cfg = INSTRUMENT_CONFIG[profile.instrument] || INSTRUMENT_CONFIG.piano;
+  const existing = ACTIONS.findIndex(a=>a.id==='piano');
+  const newAction = {id:'piano', icon:cfg.icon, name:cfg.name, stress:-16, fatigue:-6, heal:18, vibe:8, log:cfg.log, special:cfg.special};
+  if(existing>=0) ACTIONS[existing] = newAction;
+}
+
+/* ══ DUOLINGO ACTION & DATA ══ */
+const LANG_NAMES = {en:'영어', fr:'불어', ko:'한국어', ja:'일본어'};
+
+// Phrase sets per language: {kr: Korean text, native: target language text, lang_code: for TTS}
+const DUO_PHRASES = {
+  en: [
+    {kr:'안녕하세요', native:'Hello', code:'en-US'},
+    {kr:'감사합니다', native:'Thank you', code:'en-US'},
+    {kr:'잘 지내세요?', native:'How are you?', code:'en-US'},
+    {kr:'좋은 아침이에요', native:'Good morning', code:'en-US'},
+    {kr:'다음에 봐요', native:'See you later', code:'en-US'},
+  ],
+  fr: [
+    {kr:'안녕하세요', native:'Bonjour', code:'fr-FR'},
+    {kr:'감사합니다', native:'Merci', code:'fr-FR'},
+    {kr:'잘 지내세요?', native:'Comment ça va?', code:'fr-FR'},
+    {kr:'좋은 아침이에요', native:'Bonjour', code:'fr-FR'},
+    {kr:'다음에 봐요', native:'À bientôt', code:'fr-FR'},
+  ],
+  ko: [
+    {kr:'Hello', native:'안녕하세요', code:'ko-KR'},
+    {kr:'Thank you', native:'감사합니다', code:'ko-KR'},
+    {kr:'How are you?', native:'잘 지내세요?', code:'ko-KR'},
+    {kr:'Good morning', native:'좋은 아침이에요', code:'ko-KR'},
+    {kr:'See you later', native:'나중에 봐요', code:'ko-KR'},
+  ],
+  ja: [
+    {kr:'안녕하세요', native:'こんにちは', code:'ja-JP'},
+    {kr:'감사합니다', native:'ありがとうございます', code:'ja-JP'},
+    {kr:'잘 지내세요?', native:'お元気ですか?', code:'ja-JP'},
+    {kr:'좋은 아침이에요', native:'おはようございます', code:'ja-JP'},
+    {kr:'다음에 봐요', native:'またね', code:'ja-JP'},
+  ],
+};
+
+function buildDuoAction(){
+  const lang = LANG_NAMES[profile.language] || '언어';
+  const existing = ACTIONS.findIndex(a=>a.id==='duo');
+  const newAction = {id:'duo', icon:'🦜', name:'듀오링고 하기', stress:-10, fatigue:-4, heal:14, vibe:6, log:`${lang} 오늘의 표현을 배웠다. 조금씩이라도.`, special:'duo'};
+  if(existing>=0) ACTIONS[existing] = newAction;
+  else ACTIONS.push(newAction);
+}
+
+/* ══ DUOLINGO MINI-GAME — phrase cards ══ */
+let duoAction=null, duoPhrases=[], duoIdx=0;
+
+function openDuo(a){
+  duoAction=a;
+  const phrases = DUO_PHRASES[profile.language] || DUO_PHRASES.en;
+  duoPhrases = shuffle([...phrases]).slice(0,3);
+  duoIdx=0;
+  document.getElementById('duo-title').textContent = '🦜 ' + (LANG_NAMES[profile.language]||'언어') + ' 연습';
+  document.getElementById('duo-prog').style.width='0%';
+  document.getElementById('duo-msg').textContent='원어민 발음을 듣고 따라해보세요!';
+  showDuoPhrase();
+  document.getElementById('duo-overlay').classList.remove('hidden');
+}
+
+function showDuoPhrase(){
+  const wordEl  = document.getElementById('duo-word');
+  const subEl   = document.getElementById('duo-sub');
+  const progEl  = document.getElementById('duo-prog');
+  const choicesEl = document.getElementById('duo-choices');
+  const msgEl   = document.getElementById('duo-msg');
+
+  if(duoIdx>=duoPhrases.length){
+    wordEl.textContent='🎉';
+    subEl.textContent='오늘의 표현 완료!';
+    choicesEl.innerHTML='';
+    msgEl.textContent='훌륭해요!';
+    progEl.style.width='100%';
+    setTimeout(()=>closeDuo(true),900);
+    return;
+  }
+
+  const p = duoPhrases[duoIdx];
+  progEl.style.width = Math.round(duoIdx/duoPhrases.length*100)+'%';
+  subEl.textContent = '"' + p.kr + '" 은(는) 무슨 뜻?';
+  wordEl.textContent = p.native;
+  msgEl.textContent = '';
+  choicesEl.innerHTML = '';
+  choicesEl.style.cssText = 'display:flex;flex-direction:column;gap:8px;margin-bottom:14px';
+
+  // 🔊 speak button
+  const speakBtn = document.createElement('button');
+  speakBtn.className = 'duo-choice';
+  speakBtn.style.cssText = 'font-size:18px;padding:12px;border-color:rgba(200,169,126,0.4);color:var(--accent);font-family:inherit';
+  speakBtn.textContent = '🔊 발음 듣기';
+  speakBtn.onclick = ()=>speakPhrase(p.native, p.code);
+  choicesEl.appendChild(speakBtn);
+
+  // separator
+  const sep = document.createElement('div');
+  sep.style.cssText = 'font-size:11px;color:var(--muted);text-align:center;margin:2px 0;letter-spacing:.04em';
+  sep.textContent = '뜻을 골라보세요';
+  choicesEl.appendChild(sep);
+
+  // answer grid
+  const all = DUO_PHRASES[profile.language] || DUO_PHRASES.en;
+  const wrongs = shuffle(all.filter(x=>x.native!==p.native)).slice(0,2);
+  const options = shuffle([p, ...wrongs]);
+  const optGrid = document.createElement('div');
+  optGrid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:8px';
+  options.forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className = 'duo-choice';
+    btn.style.fontFamily = 'inherit';
+    // show Korean meaning as the answer label
+    btn.textContent = opt.kr;
+    btn.onclick = ()=>answerDuo(opt.kr, p.kr, btn, optGrid, p);
+    optGrid.appendChild(btn);
+  });
+  choicesEl.appendChild(optGrid);
+}
+
+function speakPhrase(text, langCode){
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = langCode || 'en-US';
+  utt.rate = 0.85;
+  window.speechSynthesis.speak(utt);
+}
+
+function answerDuo(chosenKr, correctKr, btn, container, phrase){
+  container.querySelectorAll('.duo-choice').forEach(b=>b.onclick=null);
+  if(chosenKr===correctKr){
+    btn.classList.add('correct');
+    document.getElementById('duo-msg').textContent='정답! ✨';
+    if(phrase) speakPhrase(phrase.native, phrase.code);
+    duoIdx++;
+    setTimeout(showDuoPhrase, 1000);
+  } else {
+    btn.classList.add('wrong');
+    container.querySelectorAll('.duo-choice').forEach(b=>{
+      if(b.textContent===correctKr) b.classList.add('correct');
+    });
+    document.getElementById('duo-msg').textContent='아쉬워요! 다음엔 맞출 수 있어요 💪';
+    duoIdx++;
+    setTimeout(showDuoPhrase, 1300);
+  }
+}
+
+function closeDuo(success){
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+  document.getElementById('duo-overlay').classList.add('hidden');
+  if(success&&duoAction)applyAction(duoAction);
+  duoAction=null;
+}
+
+/* ══ BIRTHDAY HAT CHECK ══ */
+function isBirthday(){
+  if(!profile.birthday) return false;
+  const today = new Date();
+  const bday = new Date(profile.birthday);
+  return today.getMonth()===bday.getMonth() && today.getDate()===bday.getDate();
+}
+
+/* ══ PLANT GROWTH ══ */
+// plantLevel: 0=none, 1=sprout, 2=small, 3=medium, 4=full
+if(!window.plantLevel) window.plantLevel = 0;
+
+/* ══ SALARY SYSTEM ══ */
+let salary=0, salaryInterval=null, coins=[];
+function startSalaryTimer(){
+  // salary persists across days — never reset
+  updateSalaryDisplay();
+  if(salaryInterval) clearInterval(salaryInterval);
+  salaryInterval = setInterval(()=>{
+    salary++;
+    updateSalaryDisplay();
+    spawnCoin();
+    if(salary>=100){
+      stopSalaryTimer();
+      const thoughtP = document.querySelector('.office-thought p');
+      if(thoughtP) thoughtP.textContent = '월급 100원 달성! 이제 집에 가도 돼 😤';
+      setTimeout(goHome, 1800);
+    }
+  }, 2000);
+}
+function stopSalaryTimer(){
+  if(salaryInterval){clearInterval(salaryInterval);salaryInterval=null;}
+}
+function updateSalaryDisplay(){
+  const el=document.getElementById('salary-num');
+  if(el) el.textContent=salary.toLocaleString();
+}
+function spawnCoin(){
+  const wrap = document.getElementById('office-screen');
+  if(!wrap) return;
+  const coin = document.createElement('div');
+  coin.className='coin';
+  coin.textContent='🪙';
+  const wrapRect = document.querySelector('.office-wrap');
+  if(!wrapRect) return;
+  const maxX = wrapRect.offsetWidth - 30;
+  coin.style.left = Math.floor(Math.random()*maxX)+'px';
+  coin.style.top = '10px';
+  coin.style.position='absolute';
+  wrapRect.style.position='relative';
+  wrapRect.appendChild(coin);
+  coin.addEventListener('animationend',()=>coin.remove());
+}
+
 const CUST_OPTIONS={
   hair:[{id:'short',label:'단발'},{id:'long',label:'긴 머리'},{id:'curly',label:'곱슬'},{id:'ponytail',label:'포니테일'},{id:'bun',label:'올림머리'}],
   top:[{id:'tshirt',label:'티셔츠'},{id:'hoodie',label:'후드티'},{id:'shirt',label:'셔츠'},{id:'sweater',label:'니트'}],
@@ -202,11 +536,16 @@ function startGame(){
   document.getElementById('title-screen').classList.add('hidden');
   const gs=document.getElementById('game-screen');
   gs.classList.remove('hidden');gs.style.display='flex';
+  const titleStr = profile.nickname ? profile.nickname+'의 퇴근 힐링 루틴' : '퇴근 힐링 루틴';
+  document.getElementById('game-title').textContent = titleStr;
+  document.getElementById('office-title').textContent = titleStr;
   buildCustModal();initDay();
 }
 function initDay(){
   state.queue=shuffle(ACTIONS).slice(0,6);
   if(!state.queue.find(a=>a.id==='piano'))state.queue[5]=ACTIONS.find(a=>a.id==='piano');
+  const duoAct=ACTIONS.find(a=>a.id==='duo');
+  if(duoAct&&!state.queue.find(a=>a.id==='duo')){state.queue.push(duoAct);}
   state.phase='play';
   document.getElementById('result-area').innerHTML='';
   document.getElementById('day-pill').textContent='Day '+state.day;
@@ -216,6 +555,10 @@ function initDay(){
 function doAction(a){
   if(state.phase!=='play')return;
   if(a.special==='piano'){openPiano(a);return;}
+  if(a.special==='guitar'||a.special==='bass'){openChordGame(a);return;}
+  if(a.special==='drums'){openDrumGame(a);return;}
+  if(a.special==='vocal'){openVocalGame(a);return;}
+  if(a.special==='duo'){openDuo(a);return;}
   applyAction(a);
 }
 function applyAction(a){
@@ -224,6 +567,7 @@ function applyAction(a){
   state.heal   =clamp(state.heal   +a.heal);
   state.vibe   =clamp(state.vibe   +a.vibe);
   if(a.item)state.items[a.item]=true;
+  if(a.id==='plant'){window.plantLevel=Math.min(5,(window.plantLevel||0)+1);}
   const logEl=document.getElementById('log');
   logEl.textContent=a.log;logEl.classList.remove('flash');
   void logEl.offsetWidth;logEl.classList.add('flash');
@@ -283,10 +627,12 @@ function nextDay(){
   const os=document.getElementById('office-screen');
   os.classList.remove('hidden');os.style.display='flex';
   document.getElementById('office-day-pill').textContent='Day '+state.day+' 출근';
+  startSalaryTimer();
   requestAnimationFrame(()=>drawOffice());
 }
 
 function goHome(){
+  stopSalaryTimer();
   document.getElementById('office-screen').classList.add('hidden');
   const gs=document.getElementById('game-screen');
   gs.classList.remove('hidden');gs.style.display='flex';
@@ -538,6 +884,7 @@ function drawOfficeCharacter(ctx,w,h,deskY){
   if(char.glasses!=='none') drawGlasses(ctx,cx,headCY,headR,char.glasses);
   if(char.hat==='none') drawHairTop(ctx,cx,headCY,headR,hairCol,char.hair);
   if(char.hat!=='none') drawHatFront(ctx,cx,headCY,headR,hairCol,char.hat);
+  if(isBirthday()) drawBirthdayHat(ctx,cx,headCY,headR);
 
   // thought bubble above head
   const bubbleX=cx+headR+4, bubbleY=headCY-headR-8;
@@ -599,6 +946,9 @@ function openPiano(a){
   document.getElementById('piano-seq').textContent=pianoSeq.join('  ');
   document.getElementById('piano-prog').style.width='0%';
   document.getElementById('piano-msg').textContent='첫 번째 음: '+pianoSeq[0];
+  // dynamic title
+  const cfg = INSTRUMENT_CONFIG[profile.instrument]||INSTRUMENT_CONFIG.piano;
+  document.querySelector('.piano-title').textContent = cfg.icon+' '+cfg.name;
   buildPianoKeys();
   document.getElementById('piano-overlay').classList.remove('hidden');
 }
@@ -652,6 +1002,199 @@ function playTone(note){
     osc.start();osc.stop(audioCtx.currentTime+0.9);
   }catch(e){}
 }
+
+/* ══ GUITAR / BASS CHORD GAME ══ */
+const CHORDS = ['C','G','Am','F','Em','Dm'];
+let chordAction=null, chordSeq=[], chordIdx=0;
+function openChordGame(a){
+  chordAction=a; chordSeq=shuffle([...CHORDS]).slice(0,4); chordIdx=0;
+  const cfg=INSTRUMENT_CONFIG[profile.instrument]||INSTRUMENT_CONFIG.guitar;
+  document.querySelector('.piano-title').textContent=cfg.icon+' '+cfg.name;
+  document.querySelector('.piano-sub').textContent='코드를 순서대로 눌러보세요';
+  document.getElementById('piano-seq').textContent=chordSeq.join('  ');
+  document.getElementById('piano-prog').style.width='0%';
+  document.getElementById('piano-msg').textContent='첫 코드: '+chordSeq[0];
+  buildChordKeys();
+  document.getElementById('piano-overlay').classList.remove('hidden');
+}
+function buildChordKeys(){
+  const wrap=document.getElementById('piano-keys');wrap.innerHTML='';
+  wrap.style.width='100%';wrap.style.position='relative';wrap.style.height='auto';
+  wrap.style.display='flex';wrap.style.flexWrap='wrap';wrap.style.gap='8px';wrap.style.justifyContent='center';
+  CHORDS.forEach(c=>{
+    const k=document.createElement('button');
+    k.className='white-key';
+    k.style.cssText='width:60px;height:60px;border-radius:8px;font-size:15px;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:center;';
+    k.textContent=c;
+    k.addEventListener('mousedown',()=>hitChord(c,k));
+    k.addEventListener('touchstart',ev=>{ev.preventDefault();hitChord(c,k);},{passive:false});
+    wrap.appendChild(k);
+  });
+}
+function hitChord(chord,el){
+  playChordSound(chord);
+  el.classList.add('lit');setTimeout(()=>el.classList.remove('lit'),200);
+  if(chord===chordSeq[chordIdx]){
+    chordIdx++;
+    document.getElementById('piano-prog').style.width=Math.round(chordIdx/chordSeq.length*100)+'%';
+    if(chordIdx>=chordSeq.length){
+      document.getElementById('piano-msg').textContent='완벽해요! 🎸';
+      setTimeout(()=>{document.getElementById('piano-overlay').classList.add('hidden');if(chordAction)applyAction(chordAction);chordAction=null;},700);
+    } else {
+      document.getElementById('piano-msg').textContent='좋아요! 다음: '+chordSeq[chordIdx];
+    }
+  } else {
+    document.getElementById('piano-msg').textContent='틀렸어요! 다시: '+chordSeq[chordIdx];
+    chordIdx=0;
+    document.getElementById('piano-prog').style.width='0%';
+  }
+}
+const CHORD_FREQS={C:[261,330,392],G:[196,247,294],Am:[220,261,330],F:[175,220,261],Em:[164,196,247],Dm:[147,175,220]};
+function playChordSound(chord){
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    (CHORD_FREQS[chord]||[261,330,392]).forEach((freq,i)=>{
+      const osc=audioCtx.createOscillator();const g=audioCtx.createGain();
+      osc.connect(g);g.connect(audioCtx.destination);
+      osc.frequency.value=freq;osc.type='sawtooth';
+      g.gain.setValueAtTime(0.08,audioCtx.currentTime+i*0.02);
+      g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+1.0);
+      osc.start(audioCtx.currentTime+i*0.02);osc.stop(audioCtx.currentTime+1.1);
+    });
+  }catch(e){}
+}
+
+/* ══ DRUM RHYTHM GAME ══ */
+const DRUM_PATTERNS=[
+  {name:'기본 비트',seq:['킥','스네어','킥','스네어']},
+  {name:'하이햇 비트',seq:['킥','하이햇','스네어','하이햇']},
+  {name:'필인',seq:['스네어','스네어','킥','탐']},
+];
+let drumAction=null, drumSeq=[], drumIdx=0;
+function openDrumGame(a){
+  drumAction=a;
+  const pat=DRUM_PATTERNS[Math.floor(Math.random()*DRUM_PATTERNS.length)];
+  drumSeq=[...pat.seq]; drumIdx=0;
+  document.querySelector('.piano-title').textContent='🥁 드럼 연습';
+  document.querySelector('.piano-sub').textContent=pat.name+' — 순서대로 드럼을 쳐보세요';
+  document.getElementById('piano-seq').textContent=drumSeq.join(' → ');
+  document.getElementById('piano-prog').style.width='0%';
+  document.getElementById('piano-msg').textContent='첫 번째: '+drumSeq[0];
+  buildDrumPads();
+  document.getElementById('piano-overlay').classList.remove('hidden');
+}
+const DRUM_COLORS={킥:'#c87e7e',스네어:'#c8a97e',하이햇:'#7ec8a0',탐:'#a87ec8'};
+function buildDrumPads(){
+  const wrap=document.getElementById('piano-keys');wrap.innerHTML='';
+  wrap.style.cssText='width:100%;position:relative;height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;';
+  ['킥','스네어','하이햇','탐'].forEach(drum=>{
+    const k=document.createElement('button');
+    k.className='white-key';
+    k.style.cssText=`height:56px;border-radius:50%;font-size:13px;font-weight:600;font-family:inherit;background:${DRUM_COLORS[drum]}22;border-color:${DRUM_COLORS[drum]}88;color:${DRUM_COLORS[drum]};`;
+    k.textContent=drum;
+    k.addEventListener('mousedown',()=>hitDrum(drum,k));
+    k.addEventListener('touchstart',ev=>{ev.preventDefault();hitDrum(drum,k);},{passive:false});
+    wrap.appendChild(k);
+  });
+}
+function hitDrum(drum,el){
+  playDrumSound(drum);
+  const origBorder=el.style.borderColor;
+  el.style.opacity='0.5';setTimeout(()=>el.style.opacity='1',150);
+  if(drum===drumSeq[drumIdx]){
+    drumIdx++;
+    document.getElementById('piano-prog').style.width=Math.round(drumIdx/drumSeq.length*100)+'%';
+    if(drumIdx>=drumSeq.length){
+      document.getElementById('piano-msg').textContent='완벽한 리듬! 🥁';
+      setTimeout(()=>{document.getElementById('piano-overlay').classList.add('hidden');if(drumAction)applyAction(drumAction);drumAction=null;},700);
+    } else {
+      document.getElementById('piano-msg').textContent='굿! 다음: '+drumSeq[drumIdx];
+    }
+  } else {
+    document.getElementById('piano-msg').textContent='틀렸어요! 다시: '+drumSeq[drumIdx];
+    drumIdx=0;
+    document.getElementById('piano-prog').style.width='0%';
+  }
+}
+const DRUM_SOUNDS={킥:{freq:60,type:'sine',dur:0.4},스네어:{freq:200,type:'square',dur:0.15},하이햇:{freq:800,type:'square',dur:0.08},탐:{freq:120,type:'sine',dur:0.3}};
+function playDrumSound(drum){
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    const cfg=DRUM_SOUNDS[drum]||DRUM_SOUNDS['킥'];
+    const osc=audioCtx.createOscillator();const g=audioCtx.createGain();
+    osc.connect(g);g.connect(audioCtx.destination);
+    osc.frequency.setValueAtTime(cfg.freq,audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(cfg.freq*0.3,audioCtx.currentTime+cfg.dur);
+    osc.type=cfg.type;
+    g.gain.setValueAtTime(0.4,audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+cfg.dur);
+    osc.start();osc.stop(audioCtx.currentTime+cfg.dur+0.05);
+  }catch(e){}
+}
+
+/* ══ VOCAL PITCH GAME ══ */
+const VOCAL_NOTES=['도','레','미','파','솔','라','시'];
+const VOCAL_FREQS={도:261,레:294,미:330,파:349,솔:392,라:440,시:494};
+let vocalAction=null,vocalSeq=[],vocalIdx=0;
+function openVocalGame(a){
+  vocalAction=a; vocalSeq=shuffle([...VOCAL_NOTES]).slice(0,4); vocalIdx=0;
+  document.querySelector('.piano-title').textContent='🎤 보컬 연습';
+  document.querySelector('.piano-sub').textContent='음계를 순서대로 눌러보세요';
+  document.getElementById('piano-seq').textContent=vocalSeq.join('  ');
+  document.getElementById('piano-prog').style.width='0%';
+  document.getElementById('piano-msg').textContent='첫 음: '+vocalSeq[0];
+  buildVocalPads();
+  document.getElementById('piano-overlay').classList.remove('hidden');
+}
+function buildVocalPads(){
+  const wrap=document.getElementById('piano-keys');wrap.innerHTML='';
+  wrap.style.cssText='width:100%;position:relative;height:auto;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;';
+  VOCAL_NOTES.forEach(n=>{
+    const k=document.createElement('button');
+    k.className='white-key';
+    k.style.cssText='width:52px;height:52px;border-radius:50%;font-size:14px;font-weight:600;font-family:inherit;';
+    k.textContent=n;
+    k.addEventListener('mousedown',()=>hitVocal(n,k));
+    k.addEventListener('touchstart',ev=>{ev.preventDefault();hitVocal(n,k);},{passive:false});
+    wrap.appendChild(k);
+  });
+}
+function hitVocal(note,el){
+  playVocalNote(note);
+  el.classList.add('lit');setTimeout(()=>el.classList.remove('lit'),200);
+  if(note===vocalSeq[vocalIdx]){
+    vocalIdx++;
+    document.getElementById('piano-prog').style.width=Math.round(vocalIdx/vocalSeq.length*100)+'%';
+    if(vocalIdx>=vocalSeq.length){
+      document.getElementById('piano-msg').textContent='완벽한 음정! 🎤';
+      setTimeout(()=>{document.getElementById('piano-overlay').classList.add('hidden');if(vocalAction)applyAction(vocalAction);vocalAction=null;},700);
+    } else {
+      document.getElementById('piano-msg').textContent='좋아요! 다음: '+vocalSeq[vocalIdx];
+    }
+  } else {
+    document.getElementById('piano-msg').textContent='틀렸어요! 다시: '+vocalSeq[vocalIdx];
+    vocalIdx=0;
+    document.getElementById('piano-prog').style.width='0%';
+  }
+}
+function playVocalNote(note){
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    const freq=VOCAL_FREQS[note]||261;
+    const osc=audioCtx.createOscillator();const g=audioCtx.createGain();
+    osc.connect(g);g.connect(audioCtx.destination);
+    osc.frequency.value=freq; osc.type='sine';
+    // vibrato for vocal feel
+    const lfo=audioCtx.createOscillator();const lfoG=audioCtx.createGain();
+    lfo.frequency.value=5.5;lfoG.gain.value=3;
+    lfo.connect(lfoG);lfoG.connect(osc.frequency);
+    g.gain.setValueAtTime(0.0,audioCtx.currentTime);
+    g.gain.linearRampToValueAtTime(0.3,audioCtx.currentTime+0.05);
+    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.9);
+    osc.start();lfo.start();osc.stop(audioCtx.currentTime+0.95);lfo.stop(audioCtx.currentTime+0.95);
+  }catch(e){}
+}
+
 function closePiano(success){
   document.getElementById('piano-overlay').classList.add('hidden');
   if(success&&pianoAction)applyAction(pianoAction);
@@ -722,12 +1265,24 @@ function drawRoom(){
   ctx.beginPath();ctx.roundRect(sfx,sfy,10,sfh,4);ctx.fill();
   ctx.beginPath();ctx.roundRect(sfx+sfw-10,sfy,10,sfh,4);ctx.fill();
 
-  if(state.items.plant){
+  if(state.items.plant||window.plantLevel>0){
+    const pl=window.plantLevel||1;
     const px=w-70,py=flY;
-    ctx.fillStyle='rgba(55,40,22,0.9)';ctx.fillRect(px-7,py-20,14,20);
-    [[0,-28],[13,-36],[-11,-34],[8,-50],[-6,-52],[14,-56]].forEach(([lx,ly],i)=>{
-      ctx.fillStyle=`rgba(30,${100+i*8},45,0.85)`;
-      ctx.beginPath();ctx.ellipse(px+lx,py+ly,9,15,lx*.06,0,Math.PI*2);ctx.fill();
+    const potH=Math.round(10+pl*2), stemH=Math.round(pl*10);
+    ctx.fillStyle='rgba(55,40,22,0.9)';ctx.fillRect(px-7,py-potH,14,potH);
+    // leaves scale with level
+    const leafSets=[
+      [[0,-8]],
+      [[0,-14],[8,-20]],
+      [[0,-20],[10,-28],[-8,-26]],
+      [[0,-28],[12,-36],[-10,-32],[7,-44]],
+      [[0,-28],[13,-36],[-11,-34],[8,-50],[-6,-52],[14,-56]],
+    ];
+    const leaves = leafSets[Math.min(pl-1,4)];
+    leaves.forEach(([lx,ly],i)=>{
+      const g=100+i*8;
+      ctx.fillStyle=`rgba(30,${g},45,0.85)`;
+      ctx.beginPath();ctx.ellipse(px+lx,py+ly,Math.min(6+pl,10),Math.min(10+pl*2,16),lx*.06,0,Math.PI*2);ctx.fill();
     });
   }
 
@@ -819,6 +1374,8 @@ function drawCharacter(ctx,w,h,flY,heal,stress){
 
   // 12. hat FRONT parts — dome/top that sits above/on the head, drawn AFTER face
   if(char.hat!=='none') drawHatFront(ctx,cx,headCY,headR,hairCol,char.hat);
+  // Birthday hat (overrides on birthday!)
+  if(isBirthday()) drawBirthdayHat(ctx,cx,headCY,headR);
 
   // 13. parrot
   if(char.pet==='parrot')drawParrot(ctx,cx+18,shoulderY+4);
@@ -1119,6 +1676,30 @@ function drawHatFront(ctx,cx,cy,r,hairCol,hat){
     ctx.beginPath();ctx.ellipse(cx-r+1,cy+5,5,6,0.2,0,Math.PI*2);ctx.fill();
     ctx.beginPath();ctx.ellipse(cx+r-1,cy+5,5,6,-0.2,0,Math.PI*2);ctx.fill();
   }
+}
+
+
+/* ── BIRTHDAY HAT ── */
+function drawBirthdayHat(ctx,cx,cy,r){
+  // cone
+  ctx.fillStyle='#e84a8a';
+  ctx.beginPath();
+  ctx.moveTo(cx-r+2,cy-1);
+  ctx.lineTo(cx+r-2,cy-1);
+  ctx.lineTo(cx,cy-r-20);
+  ctx.closePath();ctx.fill();
+  // stripes
+  ctx.strokeStyle='rgba(255,255,255,0.35)';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(cx-r+4,cy-3);ctx.lineTo(cx+2,cy-r-16);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx-2,cy-3);ctx.lineTo(cx+r-6,cy-3);ctx.stroke();
+  // pom
+  ctx.fillStyle='#fff88a';
+  ctx.beginPath();ctx.arc(cx,cy-r-20,5,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#ffe040';
+  ctx.beginPath();ctx.arc(cx-1,cy-r-22,3,0,Math.PI*2);ctx.fill();
+  // elastic band
+  ctx.strokeStyle='rgba(255,255,255,0.25)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(cx,cy,r+1,Math.PI+0.3,2*Math.PI-0.3);ctx.stroke();
 }
 
 function drawFace(ctx,cx,cy,r,heal,stress){
