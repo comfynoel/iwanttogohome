@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -79,53 +80,78 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .piano-msg{font-size:13px;color:var(--muted);min-height:20px;margin-bottom:10px}
 .piano-close-btn{padding:10px 28px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:13px;cursor:pointer;transition:background .12s}
 .piano-close-btn:hover{background:var(--surface2)}
+
+/* GEAR BUTTON */
+.gear-btn{background:none;border:none;font-size:18px;cursor:pointer;padding:2px 4px;opacity:0.7;transition:opacity .15s,transform .2s}
+.gear-btn:hover{opacity:1;transform:rotate(30deg)}
+/* KEYBOARD */
+.kb-wrap{width:100%;max-width:520px;margin-top:8px;padding:0}
+.kb-container{background:#1a1928;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 12px 10px;user-select:none}
+.kb-row{display:flex;gap:5px;justify-content:center;margin-bottom:5px}
+.kb-key{background:#252338;border:1px solid rgba(255,255,255,0.1);border-bottom:3px solid rgba(0,0,0,0.5);border-radius:5px;color:rgba(255,255,255,0.7);font-size:10px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .06s,background .06s,border-bottom-width .06s;flex-shrink:0}
+.kb-key:active,.kb-key.pressed{transform:translateY(2px);border-bottom-width:1px;background:#3a3558}
+.kb-key.wide{flex:1.5}
+.kb-key.xwide{flex:2}
+.kb-key.space{flex:5}
+.kb-key.ear-key{background:#1e2d4a;border-color:rgba(126,184,200,0.4);color:var(–accent2);font-size:18px;width:48px!important;height:48px!important;border-width:1.5px}
+.kb-key.ear-key:active{background:#2a3d5a}
+/* SOUND PICKER */
+.sound-picker{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:flex-end;justify-content:center;z-index:300}
+.sound-sheet{background:var(–surface);border-radius:20px 20px 0 0;border:1px solid var(–border);width:100%;max-width:520px;padding:20px 16px 32px;animation:slideUp .25s cubic-bezier(.4,0,.2,1)}
+.sound-option{background:var(–surface2);border:1px solid var(–border);border-radius:10px;padding:12px 16px;margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .12s}
+.sound-option:hover{border-color:rgba(255,255,255,0.2)}
+.sound-option.active{border-color:var(–accent);background:rgba(200,169,126,0.08)}
+.sound-option-name{font-size:14px;font-weight:500}
+.sound-option-desc{font-size:12px;color:var(–muted);margin-top:2px}
 /* PROFILE */
 .profile-screen{width:100%;max-width:520px;animation:fadeUp .5s ease;padding:8px 0}
 .profile-screen h2{font-size:24px;font-weight:700;margin-bottom:6px;text-align:center}
-.profile-screen .sub{font-size:13px;color:var(--muted);margin-bottom:28px;text-align:center}
+.profile-screen .sub{font-size:13px;color:var(–muted);margin-bottom:28px;text-align:center}
 .pf-group{margin-bottom:20px}
-.pf-label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
-.pf-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text);font-family:inherit;outline:none;transition:border-color .15s}
+.pf-label{font-size:11px;font-weight:600;color:var(–muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
+.pf-input{width:100%;background:var(–surface);border:1px solid var(–border);border-radius:10px;padding:12px 14px;font-size:14px;color:var(–text);font-family:inherit;outline:none;transition:border-color .15s}
 .pf-input:focus{border-color:rgba(200,169,126,0.5)}
 .pf-chips{display:flex;flex-wrap:wrap;gap:8px}
-.pf-chip{background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:8px 16px;cursor:pointer;font-size:13px;color:var(--text);font-family:inherit;transition:all .12s}
+.pf-chip{background:var(–surface2);border:1px solid var(–border);border-radius:99px;padding:8px 16px;cursor:pointer;font-size:13px;color:var(–text);font-family:inherit;transition:all .12s}
 .pf-chip:hover{border-color:rgba(255,255,255,0.2)}
-.pf-chip.sel{background:rgba(200,169,126,0.15);border-color:var(--accent);color:var(--accent);font-weight:500}
+.pf-chip.sel{background:rgba(200,169,126,0.15);border-color:var(–accent);color:var(–accent);font-weight:500}
 /* DUOLINGO */
 .duo-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:200;padding:20px}
-.duo-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px 20px;width:100%;max-width:440px;text-align:center}
+.duo-box{background:var(–surface);border:1px solid var(–border);border-radius:16px;padding:24px 20px 20px;width:100%;max-width:440px;text-align:center}
 .duo-title{font-size:18px;font-weight:700;margin-bottom:4px}
-.duo-sub{font-size:12px;color:var(--muted);margin-bottom:14px}
-.duo-word{font-size:30px;font-weight:700;color:var(--accent);margin-bottom:16px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.duo-sub{font-size:12px;color:var(–muted);margin-bottom:14px}
+.duo-word{font-size:30px;font-weight:700;color:var(–accent);margin-bottom:16px;min-height:44px;display:flex;align-items:center;justify-content:center}
 .duo-choices{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
-.duo-choice{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 8px;cursor:pointer;font-size:13px;color:var(--text);font-family:inherit;transition:all .12s}
+.duo-choice{background:var(–surface2);border:1px solid var(–border);border-radius:10px;padding:12px 8px;cursor:pointer;font-size:13px;color:var(–text);font-family:inherit;transition:all .12s}
 .duo-choice:hover{border-color:rgba(255,255,255,0.2)}
-.duo-choice.correct{border-color:var(--green);background:rgba(126,200,160,0.15);color:var(--green)}
-.duo-choice.wrong{border-color:var(--red);background:rgba(200,126,126,0.15);color:var(--red)}
+.duo-choice.correct{border-color:var(–green);background:rgba(126,200,160,0.15);color:var(–green)}
+.duo-choice.wrong{border-color:var(–red);background:rgba(200,126,126,0.15);color:var(–red)}
 .duo-progress{height:4px;border-radius:99px;background:rgba(255,255,255,0.07);margin-bottom:14px;overflow:hidden}
-.duo-prog-fill{height:100%;border-radius:99px;background:var(--green);transition:width .3s}
-.duo-msg{font-size:13px;color:var(--muted);min-height:20px;margin-bottom:10px}
-.duo-close-btn{padding:10px 28px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:var(--text);font-family:inherit;font-size:13px;cursor:pointer;transition:background .12s}
-.duo-close-btn:hover{background:var(--surface2)}
+.duo-prog-fill{height:100%;border-radius:99px;background:var(–green);transition:width .3s}
+.duo-msg{font-size:13px;color:var(–muted);min-height:20px;margin-bottom:10px}
+.duo-close-btn{padding:10px 28px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:var(–text);font-family:inherit;font-size:13px;cursor:pointer;transition:background .12s}
+.duo-close-btn:hover{background:var(–surface2)}
 /* SALARY */
-.salary-badge{position:absolute;top:10px;right:10px;background:rgba(15,14,23,0.9);border:1px solid rgba(200,169,126,0.45);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:4px;z-index:10;pointer-events:none}
+.salary-badge{position:absolute;top:10px;right:10px;background:rgba(15,14,23,0.9);border:1px solid rgba(200,169,126,0.45);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:600;color:var(–accent);display:flex;align-items:center;gap:4px;z-index:10;pointer-events:none}
 @keyframes coinFall{0%{opacity:1;transform:translateY(-10px) rotate(0deg)}100%{opacity:0;transform:translateY(160px) rotate(540deg)}}
 .coin{position:absolute;font-size:18px;animation:coinFall 1.5s ease-in forwards;pointer-events:none;z-index:5}
 /* OFFICE SCREEN */
 .office-screen{width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center;animation:fadeUp .5s ease}
-.office-wrap{width:100%;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.office-wrap{width:100%;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(–border)}
 #office-canvas{display:block;width:100%;height:280px}
-.office-thought{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:12px 0;text-align:center}
-.office-thought p{font-size:15px;font-weight:500;color:var(--text);margin-bottom:14px}
-.quit-btn{width:100%;padding:14px;background:var(--accent);border:none;border-radius:10px;color:#1a1206;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s,transform .1s;letter-spacing:.02em}
+.office-thought{width:100%;background:var(–surface);border:1px solid var(–border);border-radius:12px;padding:16px 20px;margin:12px 0;text-align:center}
+.office-thought p{font-size:15px;font-weight:500;color:var(–text);margin-bottom:14px}
+.quit-btn{width:100%;padding:14px;background:var(–accent);border:none;border-radius:10px;color:#1a1206;font-family:‘Noto Sans KR’,sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s,transform .1s;letter-spacing:.02em}
 .quit-btn:hover{opacity:.88}
 .quit-btn:active{transform:scale(0.98)}
 </style>
+
 </head>
 <body>
 
 <!-- PROFILE SCREEN -->
-<div class="profile-screen" id="profile-screen">
+
+<div class="profile-screen hidden" id="profile-screen">
   <div style="font-size:40px;text-align:center;margin-bottom:12px">👤</div>
   <h2>나는 누구인가?</h2>
   <p class="sub">프로필을 입력하면 게임이 시작됩니다</p>
@@ -160,21 +186,22 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <button class="start-btn" style="width:100%;margin-top:8px" onclick="submitProfile()">시작하기 →</button>
 </div>
 
-<div class="title-screen hidden" id="title-screen">
+<div class="title-screen" id="title-screen">
   <div style="font-size:48px;margin-bottom:16px">🏠</div>
   <h2 id="title-h2">퇴근 힐링 루틴</h2>
   <p>지친 하루를 마치고 집에 돌아왔다.<br>오늘 저녁을 어떻게 보낼지는 당신에게 달렸다.<br>스트레스를 낮추고, 방을 꾸미고, 나를 회복하자.</p>
-  <button class="start-btn" onclick="startGame()">퇴근하기</button>
+  <button class="start-btn" onclick="goToProfile()">시작하기</button>
 </div>
 
 <div id="game-screen" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center">
   <div class="header">
     <h1 id="game-title">퇴근 힐링 루틴</h1>
-    <span class="day-pill" id="day-pill">Day 1</span>
+    <div style="display:flex;align-items:center;gap:8px"><span class="day-pill" id="day-pill">Day 1</span><button class="gear-btn" onclick="openSettings()" title="설정">⚙️</button></div>
   </div>
   <div class="room-wrap">
     <canvas id="room" onclick="handleRoomClick(event)"></canvas>
     <div class="click-hint">캐릭터 클릭 → 꾸미기 ✦</div>
+    <div class="salary-badge" id="home-salary">💰 <span id="home-salary-num">0</span>원</div>
   </div>
   <div class="stats">
     <div class="stat-card"><div class="stat-label">스트레스</div><div class="stat-num" id="v-stress" style="color:#c87e7e">80</div><div class="bar"><div class="bar-fill" id="b-stress" style="width:80%;background:#c87e7e"></div></div></div>
@@ -187,7 +214,36 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <div id="result-area" style="width:100%;max-width:520px"></div>
 </div>
 
+<!-- SETTINGS MODAL -->
+
+<div class="modal-overlay hidden" id="settings-modal">
+  <div class="modal-sheet" id="settings-sheet">
+    <div class="modal-title">설정 <button class="modal-close" onclick="closeSettings()">✕</button></div>
+    <div class="cust-section">
+      <div class="cust-label">다루는 악기</div>
+      <div class="cust-options" id="set-instrument">
+        <button class="cust-opt" data-val="piano" onclick="setSetting(this,'instrument')">🎹 피아노</button>
+        <button class="cust-opt" data-val="guitar" onclick="setSetting(this,'instrument')">🎸 기타</button>
+        <button class="cust-opt" data-val="bass" onclick="setSetting(this,'instrument')">🎸 베이스</button>
+        <button class="cust-opt" data-val="drums" onclick="setSetting(this,'instrument')">🥁 드럼</button>
+        <button class="cust-opt" data-val="vocal" onclick="setSetting(this,'instrument')">🎤 보컬</button>
+      </div>
+    </div>
+    <div class="cust-section">
+      <div class="cust-label">배우고 싶은 언어</div>
+      <div class="cust-options" id="set-language">
+        <button class="cust-opt" data-val="en" onclick="setSetting(this,'language')">🇬🇧 영어</button>
+        <button class="cust-opt" data-val="fr" onclick="setSetting(this,'language')">🇫🇷 불어</button>
+        <button class="cust-opt" data-val="ko" onclick="setSetting(this,'language')">🇰🇷 한국어</button>
+        <button class="cust-opt" data-val="ja" onclick="setSetting(this,'language')">🇯🇵 일본어</button>
+      </div>
+    </div>
+    <button class="start-btn" style="width:100%;margin-top:8px;padding:12px" onclick="closeSettings()">저장</button>
+  </div>
+</div>
+
 <!-- CUSTOMIZE MODAL: no overlay, sheet only -->
+
 <div class="modal-overlay hidden" id="cust-modal">
   <div class="modal-sheet" id="cust-sheet">
     <div class="modal-title">캐릭터 꾸미기 <button class="modal-close" onclick="closeCustomize()">✕</button></div>
@@ -202,6 +258,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 </div>
 
 <!-- OFFICE SCREEN -->
+
 <div class="office-screen hidden" id="office-screen">
   <div class="header">
     <h1 id="office-title">퇴근 힐링 루틴</h1>
@@ -215,10 +272,11 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
     <p>아 퇴근하고 싶다...</p>
     <button class="quit-btn" onclick="goHome()">퇴근해버리기 🏠</button>
   </div>
+  <div class="kb-wrap" id="kb-wrap"></div>
 </div>
 
-
 <!-- DUOLINGO OVERLAY -->
+
 <div class="duo-overlay hidden" id="duo-overlay">
   <div class="duo-box">
     <div class="duo-title" id="duo-title">🦜 언어 연습</div>
@@ -266,15 +324,15 @@ function submitProfile(){
   profile.instrument = profileChips.instrument;
   profile.language = profileChips.language;
 
-  // build instrument action
+  // Save to localStorage so next visit skips profile
+  localStorage.setItem('healingProfile', JSON.stringify(profile));
+
   buildInstrumentAction();
   buildDuoAction();
 
   document.getElementById('profile-screen').classList.add('hidden');
-  const ts = document.getElementById('title-screen');
-  ts.classList.remove('hidden'); ts.style.display='flex';
-  ts.style.flexDirection='column'; ts.style.alignItems='center';
-  document.getElementById('title-h2').textContent = nick + '의 퇴근 힐링 루틴';
+  if(profile.nickname) document.getElementById('title-h2').textContent = profile.nickname+'의 퇴근 힐링 루틴';
+  startGame();
 }
 
 /* ══ INSTRUMENT ACTION ══ */
@@ -457,20 +515,14 @@ if(!window.plantLevel) window.plantLevel = 0;
 /* ══ SALARY SYSTEM ══ */
 let salary=0, salaryInterval=null, coins=[];
 function startSalaryTimer(){
-  // salary persists across days — never reset
   updateSalaryDisplay();
   if(salaryInterval) clearInterval(salaryInterval);
+  // passive: 3 seconds idle = 1 won
   salaryInterval = setInterval(()=>{
     salary++;
     updateSalaryDisplay();
     spawnCoin();
-    if(salary>=100){
-      stopSalaryTimer();
-      const thoughtP = document.querySelector('.office-thought p');
-      if(thoughtP) thoughtP.textContent = '월급 100원 달성! 이제 집에 가도 돼 😤';
-      setTimeout(goHome, 1800);
-    }
-  }, 2000);
+  }, 3000);
 }
 function stopSalaryTimer(){
   if(salaryInterval){clearInterval(salaryInterval);salaryInterval=null;}
@@ -478,6 +530,8 @@ function stopSalaryTimer(){
 function updateSalaryDisplay(){
   const el=document.getElementById('salary-num');
   if(el) el.textContent=salary.toLocaleString();
+  const homeNum=document.getElementById('home-salary-num');
+  if(homeNum) homeNum.textContent=salary.toLocaleString();
 }
 function spawnCoin(){
   const wrap = document.getElementById('office-screen');
@@ -494,6 +548,222 @@ function spawnCoin(){
   wrapRect.style.position='relative';
   wrapRect.appendChild(coin);
   coin.addEventListener('animationend',()=>coin.remove());
+}
+
+
+/* ══ SCREEN FLOW ══ */
+function goToProfile(){
+  // If profile already saved, go straight to game
+  const saved = localStorage.getItem('healingProfile');
+  if(saved){
+    try{
+      const p = JSON.parse(saved);
+      profile.nickname = p.nickname||'';
+      profile.birthday = p.birthday||'';
+      profile.instrument = p.instrument||'piano';
+      profile.language = p.language||'en';
+      buildInstrumentAction();
+      buildDuoAction();
+      if(profile.nickname) document.getElementById('title-h2').textContent = profile.nickname+'의 퇴근 힐링 루틴';
+    }catch(e){}
+    startGame();
+    return;
+  }
+  // First time — show profile screen
+  document.getElementById('title-screen').classList.add('hidden');
+  const ps = document.getElementById('profile-screen');
+  ps.classList.remove('hidden'); ps.style.display='flex'; ps.style.flexDirection='column';
+}
+
+/* ══ SETTINGS (gear icon) ══ */
+function openSettings(){
+  // mark current selections
+  const modal = document.getElementById('settings-modal');
+  modal.querySelectorAll('[data-val]').forEach(b=>{
+    b.classList.toggle('active',
+      b.closest('#set-instrument') ? b.dataset.val===profile.instrument
+                                   : b.dataset.val===profile.language);
+  });
+  modal.classList.remove('hidden');
+}
+function closeSettings(){
+  document.getElementById('settings-modal').classList.add('hidden');
+  buildInstrumentAction();
+  buildDuoAction();
+}
+function setSetting(btn, group){
+  const container = document.getElementById('set-'+group);
+  container.querySelectorAll('.cust-opt').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  profile[group] = btn.dataset.val;
+  if(group==='instrument'){
+    buildInstrumentAction();
+    // Patch the current queue in-place so the button updates right now
+    const updated = ACTIONS.find(a=>a.id==='piano');
+    if(updated){
+      const qi = state.queue.findIndex(a=>a.id==='piano');
+      if(qi>=0) state.queue[qi] = updated;
+    }
+    // Re-render action buttons immediately
+    if(state.phase==='play') renderActions();
+  }
+  if(group==='language'){buildDuoAction();}
+  localStorage.setItem('healingProfile', JSON.stringify(profile));
+}
+
+/* ══ MECHANICAL KEYBOARD ══ */
+const KB_SOUNDS = [
+  {id:'thock',  name:'Thock', desc:'묵직하고 깊은 타감 — 가장 인기 있는 ASMR 소리'},
+  {id:'clack',  name:'Clack', desc:'청량한 클릭음 — 집중하기 좋은 사무실 소리'},
+  {id:'cream',  name:'Creamy', desc:'부드럽고 크리미한 소리 — 롱 타이핑에 최적'},
+  {id:'silent', name:'Silent', desc:'조용한 묵음 스위치 — 방해 없는 소리'},
+];
+let kbSoundType = 'thock';
+let kbAudioCtx = null;
+let kbActive = false; // whether user is actively typing
+let kbSalaryTick = null;
+
+function getKbCtx(){
+  if(!kbAudioCtx) kbAudioCtx = new(window.AudioContext||window.webkitAudioContext)();
+  return kbAudioCtx;
+}
+
+function playMechKey(type){
+  try{
+    const ctx = getKbCtx();
+    const now = ctx.currentTime;
+    if(type==='thock'){
+      // deep thocky sound: low sine burst + short noise
+      const osc=ctx.createOscillator(); const g=ctx.createGain();
+      osc.connect(g); g.connect(ctx.destination);
+      osc.type='sine'; osc.frequency.setValueAtTime(180,now);
+      osc.frequency.exponentialRampToValueAtTime(60,now+0.12);
+      g.gain.setValueAtTime(0.35,now); g.gain.exponentialRampToValueAtTime(0.001,now+0.18);
+      osc.start(now); osc.stop(now+0.2);
+      // click transient
+      const buf=ctx.createBuffer(1,ctx.sampleRate*0.02,ctx.sampleRate);
+      const d=buf.getChannelData(0);
+      for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.exp(-i/(d.length*0.15));
+      const src=ctx.createBufferSource(); const ng=ctx.createGain();
+      src.buffer=buf; src.connect(ng); ng.connect(ctx.destination);
+      ng.gain.setValueAtTime(0.18,now); src.start(now);
+    } else if(type==='clack'){
+      // crisp clack: higher freq click
+      const buf=ctx.createBuffer(1,ctx.sampleRate*0.03,ctx.sampleRate);
+      const d=buf.getChannelData(0);
+      for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.exp(-i/(d.length*0.08));
+      const src=ctx.createBufferSource(); const g=ctx.createGain();
+      src.buffer=buf; src.connect(g); g.connect(ctx.destination);
+      g.gain.value=0.28; src.start(now);
+      const osc=ctx.createOscillator(); const og=ctx.createGain();
+      osc.connect(og); og.connect(ctx.destination);
+      osc.type='square'; osc.frequency.value=900;
+      og.gain.setValueAtTime(0.06,now); og.gain.exponentialRampToValueAtTime(0.001,now+0.04);
+      osc.start(now); osc.stop(now+0.05);
+    } else if(type==='cream'){
+      // smooth creamy: soft low thud
+      const osc=ctx.createOscillator(); const g=ctx.createGain();
+      osc.connect(g); g.connect(ctx.destination);
+      osc.type='sine'; osc.frequency.setValueAtTime(140,now);
+      osc.frequency.exponentialRampToValueAtTime(80,now+0.08);
+      g.gain.setValueAtTime(0.22,now); g.gain.exponentialRampToValueAtTime(0.001,now+0.14);
+      osc.start(now); osc.stop(now+0.16);
+    } else { // silent
+      const osc=ctx.createOscillator(); const g=ctx.createGain();
+      osc.connect(g); g.connect(ctx.destination);
+      osc.type='sine'; osc.frequency.value=200;
+      g.gain.setValueAtTime(0.04,now); g.gain.exponentialRampToValueAtTime(0.001,now+0.04);
+      osc.start(now); osc.stop(now+0.05);
+    }
+  }catch(e){}
+}
+
+function buildKeyboard(){
+  const wrap = document.getElementById('kb-wrap');
+  if(!wrap) return;
+  wrap.innerHTML='';
+  const container = document.createElement('div');
+  container.className = 'kb-container';
+
+  const rows = [
+    [{l:'Q'},{l:'W'},{l:'E'},{l:'R'},{l:'T'},{l:'Y'},{l:'U'},{l:'I'},{l:'O'},{l:'P'}],
+    [{l:'A'},{l:'S'},{l:'D'},{l:'F'},{l:'G'},{l:'H'},{l:'J'},{l:'K'},{l:'L'}],
+    [{l:'Z',cls:'wide'},{l:'X'},{l:'C'},{l:'V'},{l:'B'},{l:'N'},{l:'M'},{l:'⌫',cls:'wide'}],
+    [{l:'🔊',cls:'ear-key',title:'소리 변경'},{l:'',cls:'space'},{l:'↵',cls:'wide'}],
+  ];
+
+  rows.forEach(row=>{
+    const rowEl = document.createElement('div');
+    rowEl.className = 'kb-row';
+    row.forEach(k=>{
+      const key = document.createElement('button');
+      key.className = 'kb-key' + (k.cls?' '+k.cls:'');
+      key.textContent = k.l;
+      key.style.height = '38px';
+      if(!k.cls) key.style.width='32px';
+      if(k.title) key.title=k.title;
+
+      const press = (e)=>{
+        e.preventDefault();
+        key.classList.add('pressed');
+        setTimeout(()=>key.classList.remove('pressed'),120);
+        if(k.l==='🔊'){
+          openSoundPicker();
+        } else {
+          playMechKey(kbSoundType);
+          triggerKbSalary();
+        }
+      };
+      key.addEventListener('mousedown', press);
+      key.addEventListener('touchstart', press, {passive:false});
+      rowEl.appendChild(key);
+    });
+    container.appendChild(rowEl);
+  });
+
+  wrap.appendChild(container);
+}
+
+/* salary on keyboard activity — earn 1 won per second while typing */
+let kbLastType = 0;
+function triggerKbSalary(){
+  const now = Date.now();
+  // throttle: at most 1 coin per second
+  if(now - kbLastType >= 1000){
+    kbLastType = now;
+    salary++;
+    updateSalaryDisplay();
+    spawnCoin();
+  }
+}
+
+/* ══ SOUND PICKER ══ */
+function openSoundPicker(){
+  // remove existing if any
+  const existing = document.getElementById('sound-picker-overlay');
+  if(existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'sound-picker'; overlay.id = 'sound-picker-overlay';
+  overlay.onclick = (e)=>{ if(e.target===overlay) overlay.remove(); };
+
+  const sheet = document.createElement('div');
+  sheet.className = 'sound-sheet';
+  sheet.innerHTML = '<div style="font-size:15px;font-weight:600;margin-bottom:14px">⌨️ 키보드 소리 선택</div>';
+
+  KB_SOUNDS.forEach(s=>{
+    const opt = document.createElement('div');
+    opt.className = 'sound-option' + (s.id===kbSoundType?' active':'');
+    opt.innerHTML = '<div><div class="sound-option-name">'+s.name+'</div><div class="sound-option-desc">'+s.desc+'</div></div>';
+    opt.onclick = ()=>{
+      kbSoundType = s.id;
+      playMechKey(s.id);
+      overlay.remove();
+    };
+    sheet.appendChild(opt);
+  });
+  overlay.appendChild(sheet);
+  document.body.appendChild(overlay);
 }
 
 const CUST_OPTIONS={
@@ -628,7 +898,7 @@ function nextDay(){
   os.classList.remove('hidden');os.style.display='flex';
   document.getElementById('office-day-pill').textContent='Day '+state.day+' 출근';
   startSalaryTimer();
-  requestAnimationFrame(()=>drawOffice());
+  requestAnimationFrame(()=>{ drawOffice(); buildKeyboard(); });
 }
 
 function goHome(){
@@ -993,13 +1263,32 @@ function hitNote(note,el){
 }
 function playTone(note){
   try{
-    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-    const osc=audioCtx.createOscillator();const gain=audioCtx.createGain();
-    osc.connect(gain);gain.connect(audioCtx.destination);
-    osc.frequency.value=NOTE_FREQS[note]||440;osc.type='triangle';
-    gain.gain.setValueAtTime(0.28,audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.9);
-    osc.start();osc.stop(audioCtx.currentTime+0.9);
+    if(!audioCtx) audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    const play = ()=>{
+      const osc=audioCtx.createOscillator();
+      const gain=audioCtx.createGain();
+      // richer piano-like tone: triangle + slight harmonics
+      osc.connect(gain);gain.connect(audioCtx.destination);
+      osc.frequency.value=NOTE_FREQS[note]||440;
+      osc.type='triangle';
+      gain.gain.setValueAtTime(0,audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.32,audioCtx.currentTime+0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+1.2);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime+1.25);
+      // overtone for richer sound
+      const osc2=audioCtx.createOscillator();const g2=audioCtx.createGain();
+      osc2.connect(g2);g2.connect(audioCtx.destination);
+      osc2.frequency.value=(NOTE_FREQS[note]||440)*2;
+      osc2.type='sine';
+      g2.gain.setValueAtTime(0,audioCtx.currentTime);
+      g2.gain.linearRampToValueAtTime(0.08,audioCtx.currentTime+0.005);
+      g2.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.6);
+      osc2.start(audioCtx.currentTime);
+      osc2.stop(audioCtx.currentTime+0.65);
+    };
+    if(audioCtx.state==='suspended') audioCtx.resume().then(play);
+    else play();
   }catch(e){}
 }
 
@@ -1180,19 +1469,48 @@ function hitVocal(note,el){
 function playVocalNote(note){
   try{
     if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==='suspended') audioCtx.resume();
     const freq=VOCAL_FREQS[note]||261;
-    const osc=audioCtx.createOscillator();const g=audioCtx.createGain();
-    osc.connect(g);g.connect(audioCtx.destination);
-    osc.frequency.value=freq; osc.type='sine';
-    // vibrato for vocal feel
-    const lfo=audioCtx.createOscillator();const lfoG=audioCtx.createGain();
-    lfo.frequency.value=5.5;lfoG.gain.value=3;
-    lfo.connect(lfoG);lfoG.connect(osc.frequency);
-    g.gain.setValueAtTime(0.0,audioCtx.currentTime);
-    g.gain.linearRampToValueAtTime(0.3,audioCtx.currentTime+0.05);
-    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.9);
-    osc.start();lfo.start();osc.stop(audioCtx.currentTime+0.95);lfo.stop(audioCtx.currentTime+0.95);
-  }catch(e){}
+    const now=audioCtx.currentTime;
+    const master=audioCtx.createGain();
+    master.gain.setValueAtTime(0,now);
+    master.gain.linearRampToValueAtTime(0.28,now+0.08);
+    master.gain.setValueAtTime(0.28,now+0.6);
+    master.gain.linearRampToValueAtTime(0,now+1.1);
+    master.connect(audioCtx.destination);
+
+    // Choir = 4 slightly detuned voices singing the same note
+    const voiceOffsets=[-6,-2,+2,+6]; // cents detune per voice
+    voiceOffsets.forEach((detuneCents,vi)=>{
+      const osc=audioCtx.createOscillator();
+      const g=audioCtx.createGain();
+      osc.connect(g); g.connect(master);
+      osc.type='sine';
+      osc.frequency.value=freq * Math.pow(2, detuneCents/1200);
+      g.gain.value = 0.25;
+
+      // vibrato LFO — each voice slightly different rate for organic feel
+      const lfo=audioCtx.createOscillator();
+      const lfoG=audioCtx.createGain();
+      lfo.type='sine';
+      lfo.frequency.value=4.8+vi*0.3;
+      lfoG.gain.value=freq*0.012; // ~1.2% freq modulation
+      lfo.connect(lfoG); lfoG.connect(osc.frequency);
+
+      // 2nd harmonic for warmth
+      const osc2=audioCtx.createOscillator();
+      const g2=audioCtx.createGain();
+      osc2.connect(g2); g2.connect(master);
+      osc2.type='sine';
+      osc2.frequency.value=freq*2 * Math.pow(2, detuneCents/1200);
+      g2.gain.value=0.06;
+
+      osc.start(now); lfo.start(now);
+      osc2.start(now);
+      osc.stop(now+1.15); lfo.stop(now+1.15);
+      osc2.stop(now+1.15);
+    });
+  }catch(e){console.log(e);}
 }
 
 function closePiano(success){
@@ -1852,5 +2170,6 @@ window.addEventListener('resize',()=>{
   if(!document.getElementById('game-screen').classList.contains('hidden'))drawRoom();
 });
 </script>
+
 </body>
 </html>
